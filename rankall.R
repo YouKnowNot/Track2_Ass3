@@ -36,17 +36,17 @@ rankall <- function(outcome, num ) {
     # Switch to check which outcome to generate 
     if(outcome=="heart attack"){
         ha <- mort[,c(1,2,3)]
-        ha<- ha[order(ha$`Heart Attack Rate`, -xtfrm(ha[,1])),]
+        ha<- ha[order(ha$`Heart Attack Rate`, ha[,1]),]
     }
     if(outcome=="heart failure"){
         ha <- mort[,c(1,2,4)]
-        ha<- ha[order(ha$'Heart Failure Rate', -xtfrm(ha[,1])),]
+        ha<- ha[order(ha$'Heart Failure Rate', ha[,1]),]
         
     }
     if(outcome=="pneumonia"){
         ha <- mort[,c(1,2,5)]
-        ha<- ha[order(ha$Pneumonia, -xtfrm(ha[,1])),]
+        ha<- ha[order(ha$Pneumonia, ha[,1]),]
     }
     res<-evaluate_rankall(ha, num)
-    res[,c(1,2)]
+    
 }

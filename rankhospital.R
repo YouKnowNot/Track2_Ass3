@@ -43,20 +43,25 @@ rankhospital <- function(state=character, outcome=character, rank){
     
     #source function evaluate to check the rank input (char vs num) and retrun the final result
     source("evaluate.r")
-    
+    print(sp)
     # Switch to check which outcome to generate 
     if(outcome=="heart attack"){
         ha <- sp[,c(1,2,3)]
-        ha<- ha[order(ha$`Heart Attack Rate`, -xtfrm(ha[,1])),]
+        ha<- ha[order(ha$`Heart Attack Rate`, xtfrm(ha[,1])),]
+        print(ha)
     }
     if(outcome=="heart failure"){
         ha <- sp[,c(1,2,4)]
-        ha<- ha[order(ha$'Heart Failure Rate', -xtfrm(ha[,1])),]
+        ha<- ha[order(ha$'Heart Failure Rate', xtfrm(ha[,1])),]
+        print(ha)
+        
 
     }
     if(outcome=="pneumonia"){
         ha <- sp[,c(1,2,5)]
-        ha<- ha[order(ha$Pneumonia, -xtfrm(ha[,1])),]
+        ha<- ha[order(ha$Pneumonia, xtfrm(ha[,1])),]
+        print(ha)
+        
     }
     
     #function produces the results based on rank (char vs num)
